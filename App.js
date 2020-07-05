@@ -8,16 +8,18 @@ const App = () => {
   const [currentNumber, setCurrentNumber] = useState('');
   const [currentText, setCurrentText] = useState('START');
 
-  const startSession = async () => {
+  const startSession = () => {
     if (currentText === 'START') {
       let exArray = [
-        {exercise: '', duration: 3},
+        {exercise: 'STARTING IN', duration: 2},
         {exercise: 'PUSH UPs', duration: 5},
         {exercise: 'REST', duration: 3},
         {exercise: 'PULL UP', duration: 5},
         {exercise: 'REST', duration: 3},
       ];
       let counter = 0;
+      setCurrentText('STARTING IN');
+      setCurrentNumber(exArray[counter].duration + 1);
       let intervalID = setInterval(() => {
         if (counter < exArray.length) {
           setCurrentNumber(exArray[counter].duration);
@@ -26,6 +28,9 @@ const App = () => {
           if (exArray[counter].duration === -1) {
             if (counter === exArray.length - 1) {
               clearInterval(intervalID);
+              //return to start state
+              setCurrentNumber('');
+              setCurrentText('START');
             } else {
               counter += 1;
             }
@@ -34,35 +39,7 @@ const App = () => {
       }, 1000);
     }
   };
-  // const startTimer = () => {
-  //   if (currentNumber === '') {
-  //     let counter = 2;
-  //     let intervalID;
-  //     let workCounter = 5;
-  //     let restCounter = 5;
-  //     setCurrentNumber(3);
-  //     setCurrentText('');
-  //     intervalID = setInterval(() => {
-  //       setCurrentNumber(counter);
-  //       counter--;
-  //       if (counter < -1) {
-  //         setCurrentNumber(workCounter);
-  //         setCurrentText('WORK');
-  //         workCounter--;
-  //         if (workCounter < -1) {
-  //           setCurrentNumber(restCounter);
-  //           setCurrentText('REST');
-  //           restCounter--;
-  //           if (restCounter < -1) {
-  //             setCurrentNumber('');
-  //             setCurrentText('START');
-  //             stopTimer(intervalID);
-  //           }
-  //         }
-  //       }
-  //     }, 1000);
-  //   }
-  // };
+
   return (
     <View style={styles.screen}>
       <Header />
