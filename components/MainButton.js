@@ -25,30 +25,32 @@ const MainButton = props => {
       </>
     );
   };
-  Sound.setCategory('Playback');
-  var beep = new Sound('tone_beep.mp3', Sound.MAIN_BUNDLE, error => {
-    if (error) {
-      console.log('failed to load the sound', error);
-      return;
-    }
-    // loaded successfully
-    console.log(
-      'duration in seconds: ' +
-        beep.getDuration() +
-        'number of channels: ' +
-        beep.getNumberOfChannels(),
-    );
-  });
-  var ten = {play: fn => {}}
+
   useEffect(() => {
     // Play the sound with an onEnd callback
-    ten.play(success => {
-      if (success) {
-        console.log(success);
-        console.log('successfully finished playing');
-      } else {
-        console.log('--playback failed due to audio decoding errors');
+    Sound.setCategory('Playback');
+    var beep = new Sound('tone_beep.mp3', Sound.MAIN_BUNDLE, error => {
+      if (error) {
+        console.log('failed to load the sound', error);
+        return;
       }
+
+      beep.play(success => {
+        if (success) {
+          console.log(success);
+          console.log('successfully finished playing');
+        } else {
+          console.log('--playback failed due to audio decoding errors');
+        }
+      });
+
+      // loaded successfully
+      console.log(
+        'duration in seconds: ' +
+          beep.getDuration() +
+          'number of channels: ' +
+          beep.getNumberOfChannels(),
+      );
     });
   });
 
