@@ -1,12 +1,18 @@
 import React from 'react';
-import {View, StyleSheet, Text, ImagePropTypes} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import colors from '../constants/colors';
 
-const Header = () => {
+const Header = props => {
   return (
     <View style={styles.header}>
       <View style={styles.textView}>
         <Text style={styles.text}>TABATA</Text>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.button}
+          onPress={props.enterEditMode}>
+          <Text>S</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -25,15 +31,25 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
   },
+  button: {
+    width: 50,
+    top: 20,
+    borderRadius: 50,
+    height: 50,
+    backgroundColor: colors.PRIMARY_COLOR,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   text: {
-    fontSize: 32,
+    fontSize: 52,
     marginTop: '10%',
     fontWeight: 'bold',
     color: colors.PRIMARY_COLOR,
   },
   textView: {
+    flexDirection: 'row',
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
   },
 });

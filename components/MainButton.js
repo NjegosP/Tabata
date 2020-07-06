@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
+import Icon from 'react-native-vector-icons/';
 import Sound from 'react-native-sound';
 import colors from '../constants/colors';
 
@@ -26,33 +27,33 @@ const MainButton = props => {
     );
   };
 
-  useEffect(() => {
-    // Play the sound with an onEnd callback
-    Sound.setCategory('Playback');
-    var beep = new Sound('tone_beep.mp3', Sound.MAIN_BUNDLE, error => {
-      if (error) {
-        console.log('failed to load the sound', error);
-        return;
-      }
+  // useEffect(() => {
+  //   // Play the sound with an onEnd callback
+  //   Sound.setCategory('Playback');
+  //   var beep = new Sound('tone_beep.mp3', Sound.MAIN_BUNDLE, error => {
+  //     if (error) {
+  //       console.log('failed to load the sound', error);
+  //       return;
+  //     }
 
-      beep.play(success => {
-        if (success) {
-          console.log(success);
-          console.log('successfully finished playing');
-        } else {
-          console.log('--playback failed due to audio decoding errors');
-        }
-      });
+  //     beep.play(success => {
+  //       if (success) {
+  //         console.log(success);
+  //         console.log('successfully finished playing');
+  //       } else {
+  //         console.log('--playback failed due to audio decoding errors');
+  //       }
+  //     });
 
-      // loaded successfully
-      console.log(
-        'duration in seconds: ' +
-          beep.getDuration() +
-          'number of channels: ' +
-          beep.getNumberOfChannels(),
-      );
-    });
-  });
+  //     // loaded successfully
+  //     console.log(
+  //       'duration in seconds: ' +
+  //         beep.getDuration() +
+  //         'number of channels: ' +
+  //         beep.getNumberOfChannels(),
+  //     );
+  //   });
+  // });
 
   return (
     <TouchableOpacity

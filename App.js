@@ -1,20 +1,58 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, TouchableHighlight} from 'react-native';
+import {StyleSheet, View, Text, ScrollView} from 'react-native';
 import colors from './constants/colors.js';
 import Header from './components/Header';
-import MainButton from './components/MainButton';
+import ExerciseCard from './components/ExerciseCard';
+import ExerciseDisplay from './components/ExerciseDisplay';
 
 const App = () => {
   const [currentNumber, setCurrentNumber] = useState('');
   const [currentText, setCurrentText] = useState('START');
+  const [editMode, setEditMode] = useState(false);
 
+  const editModeHandler = () => {
+    if (editMode) {
+      setEditMode(false);
+    } else if (!editMode && currentText === 'START') {
+      setEditMode(true);
+    }
+  };
+
+  const cardRender = () => {
+    let arr = [
+      {exercise: 'PUSH UPs', duration: 5},
+      {exercise: 'REST', duration: 3},
+      {exercise: 'PULL UPs', duration: 5},
+      {exercise: 'REST', duration: 3},
+    ];
+
+    if (!editMode) {
+      return (
+        <ExerciseDisplay
+          exerciseName={currentText}
+          exerciseDuration={currentNumber}
+          startSessionHandler={startSession}
+        />
+      );
+    }
+    return arr.map(el => {
+      return (
+        <View style={styles.view}>
+          <ExerciseCard
+            exerciseName={el.exercise}
+            exerciseDuration={el.duration}
+          />
+        </View>
+      );
+    });
+  };
   const startSession = () => {
     if (currentText === 'START') {
       let exArray = [
         {exercise: 'STARTING IN', duration: 2},
         {exercise: 'PUSH UPs', duration: 5},
         {exercise: 'REST', duration: 3},
-        {exercise: 'PULL UP', duration: 5},
+        {exercise: 'PULL UPs', duration: 5},
         {exercise: 'REST', duration: 3},
       ];
       let counter = 0;
@@ -42,12 +80,8 @@ const App = () => {
 
   return (
     <View style={styles.screen}>
-      <Header />
-      <MainButton
-        textValue={currentText}
-        numberValue={currentNumber}
-        mainButtonPress={startSession}
-      />
+      <Header enterEditMode={editModeHandler} />
+      <ScrollView>{cardRender()}</ScrollView>
     </View>
   );
 };
