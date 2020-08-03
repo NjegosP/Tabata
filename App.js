@@ -17,15 +17,19 @@ const App = () => {
       setEditMode(true);
     }
   };
+  let arr = [
+    {exercise: 'PUSH UPs', duration: 5, id: 1},
+    {exercise: 'REST', duration: 3, id: 2},
+    {exercise: 'PULL UPs', duration: 5, id: 3},
+    {exercise: 'REST', duration: 3, id: 4},
+    {exercise: 'PUSH UPs', duration: 5, id: 5},
+    {exercise: 'REST', duration: 3, id: 6},
+    {exercise: 'PULL UPs', duration: 5, id: 7},
+    {exercise: 'REST', duration: 3, id: 8},
+  ];
+  const deleteCard = () => {};
 
   const cardRender = () => {
-    let arr = [
-      {exercise: 'PUSH UPs', duration: 5},
-      {exercise: 'REST', duration: 3},
-      {exercise: 'PULL UPs', duration: 5},
-      {exercise: 'REST', duration: 3},
-    ];
-
     if (!editMode) {
       return (
         <ExerciseDisplay
@@ -39,8 +43,10 @@ const App = () => {
       return (
         <View style={styles.view}>
           <ExerciseCard
+            id={el.id}
             exerciseName={el.exercise}
             exerciseDuration={el.duration}
+            deleteCardHandler={deleteCard}
           />
         </View>
       );
@@ -81,7 +87,9 @@ const App = () => {
   return (
     <View style={styles.screen}>
       <Header enterEditMode={editModeHandler} />
-      <ScrollView>{cardRender()}</ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {cardRender()}
+      </ScrollView>
     </View>
   );
 };

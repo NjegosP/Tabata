@@ -5,19 +5,42 @@ import CardTextField from './CardTextField';
 
 const ExerciseCard = props => {
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      style={styles.exerciseCard}
-      onPress={props.startSessionHandler}>
-      <CardTextField
-        style={styles.textField}
-        exerciseName={props.exerciseName}
-        exerciseDuration={props.exerciseDuration}
-      />
-    </TouchableOpacity>
+    <View style={styles.mainPositioning} id={props.id}>
+      <TouchableOpacity
+        activeOpacity={0.8}
+        style={styles.exerciseCard}
+        onPress={props.startSessionHandler}>
+        <CardTextField
+          style={styles.textField}
+          exerciseName={props.exerciseName}
+          exerciseDuration={props.exerciseDuration}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={props.deleteCardHandler}
+        activeOpacity={0.9}
+        style={styles.removeButton}>
+        <Text>X</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 const styles = StyleSheet.create({
+  mainPositioning: {
+    display: 'flex',
+    width: '100%',
+  },
+  removeButton: {
+    alignSelf: 'flex-end',
+    top: -115,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 30,
+    height: 30,
+    borderRadius: 10,
+    backgroundColor: 'white',
+  },
   exerciseCard: {
     flexDirection: 'column',
     width: 300,
