@@ -4,13 +4,24 @@ import colors from './constants/colors.js';
 import Header from './components/Header';
 import ExerciseCard from './components/ExerciseCard';
 import ExerciseDisplay from './components/ExerciseDisplay';
+import RNCalendarEvents from 'react-native-calendar-events';
 
 const App = () => {
   const [currentNumber, setCurrentNumber] = useState('');
   const [currentText, setCurrentText] = useState('START');
   const [editMode, setEditMode] = useState(false);
 
+  const addEvent = () => {
+    RNCalendarEvents.saveEvent('Title of event', {
+      startDate: '2016-08-19T19:26:00.000Z',
+      endDate: '2017-08-19T19:26:00.000Z',
+    }).then(
+      promise => console.log(promise),
+      () => console.log('not successful'),
+    );
+  };
   const editModeHandler = () => {
+    addEvent();
     if (editMode) {
       setEditMode(false);
     } else if (!editMode && currentText === 'START') {

@@ -18,6 +18,9 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* AwesomeProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AwesomeProjectTests.m */; };
 		731C5F7830F991CB4AD27DAF /* libPods-AwesomeProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBDEDE370E4EFC2BBF59E30 /* libPods-AwesomeProject.a */; };
+		870529B824E6ADF00012F1AD /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 870529B724E6ADF00012F1AD /* EventKit.framework */; };
+		870529BA24E6ADFC0012F1AD /* libRNCalendarEvents.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 870529B924E6ADFC0012F1AD /* libRNCalendarEvents.a */; };
+		870529BC24E6ADFC0012F1AD /* libRNPermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 870529BB24E6ADFC0012F1AD /* libRNPermissions.a */; };
 		CC452383C1B501E30C7239A2 /* libPods-AwesomeProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE15CC330CEE8E71C2F4BDA3 /* libPods-AwesomeProject-tvOSTests.a */; };
 		CFDE0B3F5019C0A557205FB9 /* libPods-AwesomeProject-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA573621D59189F3B2A514F9 /* libPods-AwesomeProject-AwesomeProjectTests.a */; };
 /* End PBXBuildFile section */
@@ -56,6 +59,9 @@
 		2C5A3BAFE1A81916738D627A /* Pods-AwesomeProject-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-tvOS.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-tvOS/Pods-AwesomeProject-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* AwesomeProject-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AwesomeProject-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* AwesomeProject-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AwesomeProject-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		870529B724E6ADF00012F1AD /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		870529B924E6ADFC0012F1AD /* libRNCalendarEvents.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNCalendarEvents.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		870529BB24E6ADFC0012F1AD /* libRNPermissions.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNPermissions.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E62821EE11017E5392ABE2 /* Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject-AwesomeProjectTests/Pods-AwesomeProject-AwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		A965A814091D22ED669E08D4 /* Pods-AwesomeProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.release.xcconfig"; sourceTree = "<group>"; };
 		B6D17277F39173C30A90BD04 /* libPods-AwesomeProject-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProject-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870529BA24E6ADFC0012F1AD /* libRNCalendarEvents.a in Frameworks */,
+				870529BC24E6ADFC0012F1AD /* libRNPermissions.a in Frameworks */,
+				870529B824E6ADF00012F1AD /* EventKit.framework in Frameworks */,
 				731C5F7830F991CB4AD27DAF /* libPods-AwesomeProject.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +148,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				870529B924E6ADFC0012F1AD /* libRNCalendarEvents.a */,
+				870529BB24E6ADFC0012F1AD /* libRNPermissions.a */,
+				870529B724E6ADF00012F1AD /* EventKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				EBBDEDE370E4EFC2BBF59E30 /* libPods-AwesomeProject.a */,
@@ -194,7 +206,6 @@
 				DA7EE599B2EF27D8F502AB6A /* Pods-AwesomeProject-tvOSTests.debug.xcconfig */,
 				08CC5E08781FBE6323AB6A1A /* Pods-AwesomeProject-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
